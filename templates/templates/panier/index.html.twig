@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <h1>Votre panier</h1>
+</div>
+{% if items | length> 0 %}
+   <table class="table">
+   <thead>
+       <tr>
+           <th>Produit</th>
+           <th>Prix</th>
+           <th>Quantité</th>
+           <th>Total</th>
+           <th></th>
+       </tr>
+   </thead>
+   <tbody>
+   {% for item in items %}
+        <tr>
+            <td>{{item.produit.nom}}</td>
+            <td>{{item.produit.prix}}</td>
+            <td>{{item.produit.quantity}}</td>
+            <td>{{item.produit.prix * item.quantity}}</td>
+            <td>
+                <a href="{{path('panier_remove', {id: item.produit.id}) }}" class="brn btn-danger-sm">
+                <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+       
+   {% endfor %}
+   </tbody>
+   <tfoot>
+    <tr>
+        <td colsapn="3">Total :</td>
+        <td>{{total}}</td>
+        <td></td>
+    </tr>
+   </tfoot>
+   </table> 
+{% else %}
+<p>
+    Votre panier est vide
+</p>
+    <br>
+   
+{% endif %}
+{% endblock %}
