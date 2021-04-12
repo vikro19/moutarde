@@ -17,6 +17,8 @@ header{
 section{
     background-image: url(./images/run.jpg);
     background-size: cover;
+    background-position: center;
+    
 }
 .navbar-brand img{
 
@@ -107,8 +109,8 @@ body{
     width: 50%;
     border-radius: 1rem;
     padding: 1.5%;
-    color: #fff;
-    background-color: #0062cc;
+    color: rgb(166, 106, 106);
+    background-color: #3f5267;
     border: none;
     cursor: pointer;
 }
