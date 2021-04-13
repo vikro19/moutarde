@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Produit;
-use App\Form\Produit1Type;
+use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin/produit")
  */
-class AdminProduitController extends AbstractController
+class AdminProduitController2 extends AbstractController
 {
     /**
      * @Route("/", name="admin_produit_index", methods={"GET"})
@@ -31,7 +31,7 @@ class AdminProduitController extends AbstractController
     public function new(Request $request): Response
     {
         $produit = new Produit();
-        $form = $this->createForm(Produit1Type::class, $produit);
+        $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class AdminProduitController extends AbstractController
      */
     public function edit(Request $request, Produit $produit): Response
     {
-        $form = $this->createForm(Produit1Type::class, $produit);
+        $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

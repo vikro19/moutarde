@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+{% block body %}
+    <h1>Categorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bancs</th>
+                <th>Barres_et_disques</th>
+                <th>Halteres_et_poids</th>
+                <th>Tapis_de_course</th>
+                <th>Steppers</th>
+                <th>Balles_et_ballons_gym</th>
+                <th>Corde_a_sauter</th>
+                <th>Tapis_de_gym</th>
+                <th>Autres</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.bancs }}</td>
+                <td>{{ categorie.barresEtDisques }}</td>
+                <td>{{ categorie.halteresEtPoids }}</td>
+                <td>{{ categorie.tapisDeCourse }}</td>
+                <td>{{ categorie.steppers }}</td>
+                <td>{{ categorie.ballesEtBallonsGym }}</td>
+                <td>{{ categorie.cordeASauter }}</td>
+                <td>{{ categorie.tapisDeGym }}</td>
+                <td>{{ categorie.autres }}</td>
+                <td>
+                    <a href="{{ path('admin_categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('admin_categorie_edit', {'id': categorie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_categorie_new') }}">Create new</a>
+{% endblock %}

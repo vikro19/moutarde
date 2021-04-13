@@ -7,7 +7,7 @@
 
 <div class="container">
     <h1>Votre panier</h1>
-</div>
+
 {% if items | length> 0 %}
    <table class="table">
    <thead>
@@ -16,19 +16,25 @@
            <th>Prix</th>
            <th>Quantité</th>
            <th>Total</th>
-           <th></th>
+           <th>Action</th>
+           
        </tr>
    </thead>
    <tbody>
    {% for item in items %}
         <tr>
             <td>{{item.produit.nom}}</td>
-            <td>{{item.produit.prix}}</td>
-            <td>{{item.produit.quantity}}</td>
-            <td>{{item.produit.prix * item.quantity}}</td>
+            <td class="text-right">{{item.produit.prix}} €</td>
+            <td>{{item.quantity}}</td>
+            <td class="text-right">{{item.produit.prix * item.quantity}} €</td>
             <td>
-                <a href="{{path('panier_remove', {id: item.produit.id}) }}" class="brn btn-danger-sm">
+                <a href="{{path('panier_add', {id: item.produit.id}) }}" class="btn btn-success-sm">
+                <i class="fas fa-cart-plus"></i>
+                <a href="{{path('panier_delete', {id: item.produit.id}) }}" class="btn btn-success-sm">
+                <i class="fas fa-cart-arrow-down"></i>
+                <a href="{{path('panier_remove', {id: item.produit.id}) }}" class="btn btn-danger-sm">
                 <i class="fas fa-trash"></i>
+
                 </a>
             </td>
         </tr>
@@ -38,8 +44,9 @@
    <tfoot>
     <tr>
         <td colsapn="3">Total :</td>
-        <td>{{total}}</td>
+        <td class="text-right">{{total}} €</td>
         <td></td>
+        
     </tr>
    </tfoot>
    </table> 
@@ -50,4 +57,5 @@
     <br>
    
 {% endif %}
+</div>
 {% endblock %}

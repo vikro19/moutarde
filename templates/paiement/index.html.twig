@@ -5,11 +5,8 @@
 
 {% block body %}
 <div class="example-wrapper">
- <button id="checkout-button">Checkout</button>
-  
-{% endblock %}
-
-{% block javascripts %}
+ <button id="checkout-button">Acheter</button>
+  {% block javascripts %}
   <script type="text/javascript">
       // Create an instance of the Stripe object with your publishable API key
       var stripe = Stripe('pk_test_51IaiJiCFA8tFMNMtriWM7SttuRPPlD1QEgb4ynBAP9YoMLhSQjEegPR9lgOfbddiz5TskzKVWAmX4toOTG9ZOS0w00LgQjm5GX');
@@ -42,6 +39,9 @@
     </script>
 
 
+
+
+{% endblock %}
 
 
 {% endblock %}

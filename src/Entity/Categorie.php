@@ -64,6 +64,16 @@ class Categorie
      */
     private $autres;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="categorie")
+     */
+    private $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -174,6 +184,36 @@ class Categorie
     public function setAutres(string $autres): self
     {
         $this->autres = $autres;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Produit[]
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits[] = $produit;
+            $produit->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getCategorie() === $this) {
+                $produit->setCategorie(null);
+            }
+        }
 
         return $this;
     }

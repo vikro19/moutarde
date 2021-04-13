@@ -32,6 +32,7 @@ class UserType extends AbstractType
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
             ->add('adresse', TextType::class)
+            
         ;
     }
 

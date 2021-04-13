@@ -18,17 +18,20 @@ class PanierController extends AbstractController
     {
         $panier =$session->get('panier',[]);
         $panierFull = [];
+        $total = 0;
         foreach($panier as $id => $quantity){
+            $produit = $produitRepository->find($id);
             $panierFull[] = [
-                'produit' =>$produitRepository->find($id),
+                'produit' =>$produit,
                 'quantity' => $quantity
             ];
+            $total += $produit->getPrix() * $quantity;
         }
-        $total = 0;
-        foreach ($panierFull as $item) {
-            $totalItem = $item['produit']->getPrix() * $item['quantity'];
-            $total += $totalItem;
-        }
+        
+        // foreach ($panierFull as $item) {
+        //     $totalItem = $item['produit']->getPrix() * $item['quantity'];
+        //     $total += $totalItem;
+        // }
         return $this->render('panier/index.html.twig', [
             'items' => $panierFull,
             'total' => $total
@@ -64,6 +67,26 @@ class PanierController extends AbstractController
         }
 
         $session->set('panier', $panier);
+        return $this->redirectToRoute("app_panier");
+
+    }
+    /**
+     * @Route("/panier/delete/{id}", name="panier_delete")
+     */
+    public function delete($id, SessionInterface $session): Response
+    {
+        
+        $panier = $session->get('panier', []);
+        if(!empty($panier[$id])){
+            if($panier[$id]> 1){
+                $panier[$id]--;
+            }
+           
+        }else{
+           unset($panier[$id]);
+        }
+        
+        $session->set('panier',$panier);
         return $this->redirectToRoute("app_panier");
 
     }
