@@ -11,22 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/produit")
+ * @Route("/produit")
  */
-class AdminProduitController2 extends AbstractController
+class ProduitController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_produit_index", methods={"GET"})
+     * @Route("/", name="produit_index", methods={"GET"})
      */
     public function index(ProduitRepository $produitRepository): Response
     {
-        return $this->render('admin_produit/index.html.twig', [
+        return $this->render('produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="admin_produit_new", methods={"GET","POST"})
+     * @Route("/new", name="produit_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,27 +39,27 @@ class AdminProduitController2 extends AbstractController
             $entityManager->persist($produit);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_produit_index');
+            return $this->redirectToRoute('produit_index');
         }
 
-        return $this->render('admin_produit/new.html.twig', [
+        return $this->render('produit/new.html.twig', [
             'produit' => $produit,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="admin_produit_show", methods={"GET"})
+     * @Route("/{id}", name="produit_show", methods={"GET"})
      */
     public function show(Produit $produit): Response
     {
-        return $this->render('admin_produit/show.html.twig', [
+        return $this->render('produit/show.html.twig', [
             'produit' => $produit,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_produit_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="produit_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Produit $produit): Response
     {
@@ -69,17 +69,17 @@ class AdminProduitController2 extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_produit_index');
+            return $this->redirectToRoute('produit_index');
         }
 
-        return $this->render('admin_produit/edit.html.twig', [
+        return $this->render('produit/edit.html.twig', [
             'produit' => $produit,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="admin_produit_delete", methods={"POST"})
+     * @Route("/{id}", name="produit_delete", methods={"POST"})
      */
     public function delete(Request $request, Produit $produit): Response
     {
@@ -89,6 +89,6 @@ class AdminProduitController2 extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin_produit_index');
+        return $this->redirectToRoute('produit_index');
     }
 }
