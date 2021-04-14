@@ -37,17 +37,23 @@
                 <a class="nav-link" href="abo.html.twig">abonnement</a>
               </li>
               <li class="nav-item">
+              {% if not app.user %}
                 <a class="nav-link" href="{{path('app_login')}}">Se connecter</a>
+                 {% endif %}
               </li>
               <li class="nav-item">
+               {% if not app.user %}
                 <a class="nav-link" href="register.html.twig">S'inscrire</a>
+                {% endif %}
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{path('app_panier')}}"><i class="fas fa-shopping-cart"></i></a>
                 
               </li>
+              {% if app.user %}
               <li class="nav-item">
                 <a class="nav-link" href="{{path('app_logout')}}">Se deconnecter</a>
+                {% endif %}
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{path('app_logout')}}">Profile</a>
@@ -65,7 +71,7 @@
               <li><a class="dropdown-item" href="{{path('admin_commande_index')}}">Liste commande</a></li>
               <li><a class="dropdown-item" href="{{path('admin_produit_index')}}">Liste des produits</a></li>
               <li><a class="dropdown-item" href="{{path('admin_user_index')}}">Liste des uitisateurs</a></li>
-              <li><a class="dropdown-item" href="{{path('admin_categorie_index')}}">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{path('admin_commande_quantite_index')}}">Liste de commande_quantite_</a></li>
               <li><a class="dropdown-item" href="{{path('admin_categorie_index')}}">Something else here</a></li>
               <li><a class="dropdown-item" href="{{path('admin_categorie_index')}}">Something else here</a></li>
             </ul>
