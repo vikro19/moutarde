@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Commande
      * @ORM\Column(type="date")
      */
     private $date;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CommandeQuantite::class, mappedBy="commande")
+     */
+    private $commandeQuantites;
+
+    public function __construct()
+    {
+        $this->commandeQuantites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,36 @@ class Commande
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CommandeQuantite[]
+     */
+    public function getCommandeQuantites(): Collection
+    {
+        return $this->commandeQuantites;
+    }
+
+    public function addCommandeQuantite(CommandeQuantite $commandeQuantite): self
+    {
+        if (!$this->commandeQuantites->contains($commandeQuantite)) {
+            $this->commandeQuantites[] = $commandeQuantite;
+            $commandeQuantite->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommandeQuantite(CommandeQuantite $commandeQuantite): self
+    {
+        if ($this->commandeQuantites->removeElement($commandeQuantite)) {
+            // set the owning side to null (unless already changed)
+            if ($commandeQuantite->getCommande() === $this) {
+                $commandeQuantite->setCommande(null);
+            }
+        }
 
         return $this;
     }

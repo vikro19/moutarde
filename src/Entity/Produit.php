@@ -61,6 +61,11 @@ class Produit
      */
     private $categories;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CommandeQuantite::class, inversedBy="produits")
+     */
+    private $commandeQuantite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -163,6 +168,18 @@ class Produit
     public function setCategories(?Categorie $categories): self
     {
         $this->categories = $categories;
+
+        return $this;
+    }
+
+    public function getCommandeQuantite(): ?CommandeQuantite
+    {
+        return $this->commandeQuantite;
+    }
+
+    public function setCommandeQuantite(?CommandeQuantite $commandeQuantite): self
+    {
+        $this->commandeQuantite = $commandeQuantite;
 
         return $this;
     }

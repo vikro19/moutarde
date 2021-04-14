@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,8 +27,8 @@ class RegistrationFormType extends AbstractType
             ->add('fonction',ChoiceType::class, [
                 'mapped' => false,
                 'choices'=> [
-                    'alpha'=> 1,
-                    'beta'=> 2
+                    'utilisateur'=> 1,
+                    'Entraineur'=> 2
                 ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -54,6 +55,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('enregistrer',SubmitType::class)
         ;
     }
 

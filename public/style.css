@@ -48,6 +48,10 @@ color: #333;
     box-shadow: none;
 
 }
+.col-sport img{
+    height: 300px;
+    width: 300px;
+}
 /*boutique-image */
   /* img{
 
