@@ -45,11 +45,7 @@ class Produit
      */
     private $prix;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
-     */
-    private $categorie;
-
+    
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -59,6 +55,11 @@ class Produit
      * @Vich\UploadableField(mapping="produits_img", fileNameProperty="image")
      */
     private $imageFile;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="produits")
+     */
+    private $categories;
 
     public function getId(): ?int
     {
@@ -125,17 +126,7 @@ class Produit
         return $this;
     }
 
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
+   
 
     public function getImage(): ?string
     {
@@ -162,6 +153,18 @@ class Produit
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function getCategories(): ?Categorie
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categorie $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
     }
 
     

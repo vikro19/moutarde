@@ -15,7 +15,8 @@
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Prix</th>
-                <th>actions</th>
+                <th>Categories</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                 <td>{{ produit.nom }}</td>
                 <td>{{ produit.description }}</td>
                 <td>{{ produit.prix }}</td>
+                <td>{{ produit.categories.nom }}</td>
                 <td>
                     <a href="{{ path('admin_produit_show', {'id': produit.id}) }}" class="btn btn-outline-danger">show</a>
                     <a href="{{ path('admin_produit_edit', {'id': produit.id}) }}" class="btn btn-outline-secondary">edit</a>

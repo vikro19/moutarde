@@ -20,12 +20,11 @@ class Produit1Type extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('prix')
-            ->add('categorie')
             ->add('imageFile', FileType::class)
-            // ->add('categorie', EntityType::class, [
-            //     'class'=> Categorie::class,
-            //     'choice'=>'nom'
-            // ])
+            ->add('categories', EntityType::class, [
+                'class'=> Categorie::class,
+                'choice_label'=>'nom'
+            ])
         ;
     }
 
