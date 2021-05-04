@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technec-formation{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('Css/formation.css') }}">
+{% endblock %}
+
+{% block body %}
+    
+<section id="block1">
+
+    <h1>Mes Formations</h1>
+    <p id="intro">Mes formations pour vous permettre d'atteindre vos objectifs professionnels et vous reconvertir dans le numérique</p>
+
+    <div class="sousBlock1 container col-md-15">
+
+        {% for formation in formations %}
+
+
+        <div class="card mb-3">
+
+            
+
+                <div class="divImg">
+
+                    <img
+                        src="https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
+                        alt="..."
+                        class="img-fluid imgCarte"
+                    />
+
+                </div>
+
+                
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{ formation.Nom }}</h5>
+                        <p class="card-text">
+                        {{ formation.description }}
+                        </p>
+                        <p class="card-text">
+                        <small class="text-muted">{{ formation.NombreDeJour }}jours</small>
+                        </p>
+
+                    </div>
+
+                
+
+            
+        </div>
+
+
+
+        {% else %}
+            <h5 id="noFormationFound">Aucune formation disponible pour le moment.</h5>
+        {% endfor %}
+
+        <a  type="button" class="btn btn-primary" id="boutonAjoutFormation" href="{{ path('formation_new') }}">Ajouter une formation</a>
+
+    </div>
+
+
+    
+
+</section>
+
+
+
+    <!--<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>NombreDeJour</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.Nom }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.NombreDeJour }}</td>
+                <td>
+                    <a href="{{ path('formation_show', {'id': formation.id}) }}">show</a>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+    -->
+
+
+
+{% endblock %}

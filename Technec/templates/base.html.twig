@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+
+        <!---------------------------------------------------------------------- Mdbootstrap------------------------------------------------------------------------>
+
+
+        <!-- MDB -->
+            <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+            ></script>
+        <!-- Font Awesome -->
+            <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+            />
+            <!-- Google Fonts -->
+            <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+            />
+            <!-- MDB -->
+            <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+            rel="stylesheet"
+            />
+
+           
+        <!---------------------------------------------------------------Polices------------------------------------------------------------------------>
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+        {% block stylesheets %}
+
+        {% endblock %}
+
+        {% block javascripts %}
+
+        {% endblock %}
+    </head>
+    <body>
+
+        <header>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarLeftAlignExample"
+                aria-controls="navbarLeftAlignExample"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navul">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('accueil') }}">Logo</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ path('accueil') }}">Accueil</a>
+                    </li>
+
+                    <!-- Navbar dropdown -->
+                    <li class="nav-item dropdown">
+
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdown"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            Articles
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('articles')}}">Articles</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('formations')}}">Formation</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ path('contact')}}">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">A propos de moi</a>
+                    </li>
+
+                    <div id="navDroite">
+
+                        <form class="d-flex input-group w-auto" id="barreRecherche">
+                            <input
+                            type="search"
+                            class="form-control"
+                            placeholder="Rechercher un article"
+                            aria-label="Rechercher"
+                            />
+                            <button
+                            class="btn btn-outline-primary"
+                            type="button"
+                            data-mdb-ripple-color="dark"
+                            >
+                            Rechercher
+                            </button>
+                        </form>
+
+
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary loginButton" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                        Se connecter
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+
+                            <div class="modal-dialog modal-dialog-centered">
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+
+                                        <h4 class="modal-title" id="exampleModalLabel">Connexion</h4>
+                                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                    
+                                    
+                                    <form>
+                                        <!-- Email input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example1" class="form-control formModal" />
+                                            <label class="form-label" for="form2Example1">Adresse mail</label>
+                                        </div>
+
+                                        <!-- Password input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="form2Example2" class="form-control formModal" />
+                                            <label class="form-label" for="form2Example2">Mot de passe</label>
+                                        </div>
+
+                                        <!-- 2 column grid layout for inline styling -->
+                                        <div class="row mb-4">
+                                            <div class="col d-flex justify-content-center">
+                                            <!-- Checkbox -->
+                                            <div class="form-check">
+                                                <input
+                                                class="form-check-input"
+                                                type="checkbox"
+                                                value=""
+                                                id="form2Example3"
+                                                checked
+                                                />
+                                                <label class="form-check-label" for="form2Example3"> Se souvenir de moi </label>
+                                            </div>
+                                            </div>
+
+                                            <div class="col">
+                                            <!-- Simple link -->
+                                            <a href="#!">Mot de passe oublié?</a>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                                        <!-- Register buttons -->
+                                        <div class="text-center">
+                                            <p>Not a member? <a href="#!">Register</a></p>
+                                            <p>or sign up with:</p>
+                                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                            <i class="fab fa-facebook-f"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                            <i class="fab fa-google"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                            <i class="fab fa-twitter"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary btn-floating mx-1">
+                                            <i class="fab fa-github"></i>
+                                            </button>
+                                        </div>
+                                        
+                                    </form>
+
+                                    
+                                    </div>
+
+                                    
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </ul>
+                <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
+            </div>
+            <!-- Container wrapper -->
+            </nav>
+
+        </header>
+
+        {% block body %}
+
+        
+        
+        {% endblock %}
+
+
+
+            <footer class=" footer bg-light text-center text-white shadow-2-strong">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                    <!-- Facebook -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #3b5998;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-facebook-f"></i
+                    ></a>
+
+                    <!-- Twitter -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #55acee;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-twitter"></i
+                    ></a>
+
+                    <!-- Google -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #dd4b39;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-google"></i
+                    ></a>
+
+                    <!-- Instagram -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #ac2bac;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+
+                    <!-- Linkedin -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #0082ca;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                    <!-- Github -->
+                    <a
+                        class="btn btn-primary btn-floating m-1"
+                        style="background-color: #333333;"
+                        href="#!"
+                        role="button"
+                        ><i class="fab fa-github"></i
+                    ></a>
+                    </section>
+                    <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2020 Copyright:
+                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+
+
+        
+      <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>  
+    </body>
+</html>

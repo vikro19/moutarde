@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} RendezVousController!{% endblock %}
+ {% block stylesheets %}
+    <style>
+    #calendrier{
+        width:80%;
+        margin:auto;
+    }
+    </style>
+{% endblock %}
+{% block body %}
+
+
+    <div id="calendrier"></div>
+   
+
+   
+{% endblock %}
+{% block javascripts %}
+    <script>
+        window.onload = ()=>{
+        let calendarElt = document.querySelector("#calendrier") 
+        let calendar = new FullCalendar.Calendar(calendarElt,{
+            initialView: 'dayGridMonth',
+            locale:'fr',
+            timeZone:'Europe/Paris',
+            headerToolbar:{
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek'
+            },
+            events: {{data|raw}},
+            editable: true,
+            eventResizableFromStart: true,
+            eventClick: function(info) {
+    alert('Event: ' + info.event.title);
+    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+    alert('View: ' + info.view.type);
+
+    // change the border color just for fun
+    info.el.style.borderColor = 'red';
+  }
+            
+        })
+        calendar.on('eventChange', (e) =>{
+            let url = `/api/${e.event.id}/edit`
+            let datas ={
+                "title": e.event.title,
+                "description":e.event.extendedProps.description,
+                "start": e.event.start,
+                "end": e.event.end,
+                "backgroundColor": e.event.backgroundColor,
+                "borderColor": e.event.borderColor,
+                "textColor": e.event.textColor,
+                "allDay": e.event.allDay
+            }
+                console.log(datas);
+            let xhr = new XMLHttpRequest
+            
+            xhr.open("PUT", url)
+            xhr.send(JSON.stringify(datas))
+        })
+        calendar.render()
+        }
+    </script>
+
+{% endblock %}

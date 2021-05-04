@@ -1,0 +1,304 @@
+
+
+body{
+    position: relative;
+    color: #2b2b2b;
+    font-family: 'Titillium Web', sans-serif;
+    min-height: 100vh;
+}
+
+
+/**************************************************************NavBAR**********************************************************/
+
+.navbar{
+    height: 5rem;
+    padding: 0;
+    background-color: #2b2b2b !important;
+}
+
+.navul{
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid{
+    height: 100%;
+}
+
+.nav-item{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1rem;
+    transition: all 0.8s ease 0s;
+}
+
+.nav-item:hover{
+    background-color: rgb(0, 98, 255);
+}
+
+.nav-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1rem;
+    color: white !important;
+    padding: 0;
+}
+
+
+#navbarLeftAlignExample{
+    height: 100%;
+}
+
+#navDroite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2%;
+}
+
+.loginButton{
+    margin-left: 1rem;
+}
+
+
+.dropdown-menu{
+    background-color: #2b2b2b !important;
+    top: 95%;
+}
+
+.dropdown-item{
+    color: white;
+    transition: all 0.8s ease 0s;
+}
+
+.dropdown-item:hover{
+    background-color: rgb(0, 98, 255);
+    color: white;
+}
+
+.formModal{
+    border: 1px solid rgb(0, 98, 255) !important;
+}
+
+.modal-title{
+    text-align: center;
+}
+
+
+/**********************************************************************CarteIntro************************************************************************/
+
+
+.block1{
+    padding-bottom: 5rem;
+}
+
+.testimonial-card .card-up {
+    height: 120px;
+    overflow: hidden;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.testimonial-card{
+    padding-bottom: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.aqua-gradient {
+    background: linear-gradient(40deg, #2096ff, #05ffa3) !important;
+    width: 100%;
+}
+  
+.testimonial-card .avatar {
+    width: 120px;
+    margin-top: -60px;
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-radius: 50%;
+}
+
+.card-up{
+    height: 25rem !important;
+}
+
+#buttonProfil{
+    min-width: 15%;
+    max-width: 20%;
+}
+
+/************************************************************************BLOCK2**************************************************************************/
+
+.content{
+    display: flex;
+}
+
+/**********************************BLOCK2*********************************/
+
+.block2{
+    margin-top: 5rem;
+    padding-bottom: 15rem;
+    width: 80%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+
+#introBlock2{
+    text-align: center;
+}
+
+.row{
+    justify-content: center;
+    align-items: center;
+}
+
+.carteArticle{
+    width: 40%;
+    height: 15rem;
+    margin: 1rem;
+    position: relative;
+    color: white;
+    padding: 0;
+}
+
+
+.cardImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.card-description{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 1rem;
+    height: 50%;
+    z-index: 2;
+}
+
+.shadowCard{
+    opacity: 0.7;
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 50%;
+    background-color: black;
+}
+
+/**********************************BLOCK2DROITE*********************************/
+
+.block2Droite{
+    width: 20%;
+    padding-top: 2rem;
+    border-radius: 5px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#articlesRecents h3{
+    text-align: center;
+}
+
+
+
+
+
+/***********************************************************************Footer***************************************************************************/
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #2b2b2b !important;
+}
+
+.mb-4{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*######################################################################################################################################################################################################################## RESPONSIVE #############################################################################*/
+
+@media (max-width: 992px){
+
+
+    .navbar{
+        z-index: 2;
+    }
+
+    .navul{
+        flex-direction: column;
+    }
+
+    #navDroite{
+        position: relative;
+        flex-direction: column;
+    }
+
+    #navbarLeftAlignExample{
+        height: auto;
+        background-color: #2b2b2b;
+        position: absolute;
+        left: 0;
+        top: 100%;
+    }
+
+    .nav-item{
+        width: 100%;
+        height: 5rem;
+        border-bottom: 0.5px solid #222;
+    }
+
+    .loginButton{
+        margin: 2rem;
+    }
+
+    .fa-bars{
+        color: white;
+        display: block;
+    }
+
+    #barreRecherche{
+        margin: 2rem;
+    }
+
+    .dropdown{
+        height: auto;
+        min-height: 5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    .dropdown-menu{
+        position: relative !important;
+        text-align: center;
+        width: 100%;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        border-radius: 0;
+    }
+}

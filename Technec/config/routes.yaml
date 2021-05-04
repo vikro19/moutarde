@@ -1,0 +1,8 @@
+articles:
+    path: /articles
+    controller: App\Controller\ArticleController::articles
+
+
+formations:
+    path: /formations
+    controller: App\Controller\FormationController::formations

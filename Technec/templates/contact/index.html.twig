@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Me contacter{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('Css/contact.css') }}">
+{% endblock %}
+
+{% form_theme contactForm 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <section id="block1">
+
+        <h1>Me contacter</h1>
+
+        {{ form(contactForm) }}
+
+
+    </section>
+
+
+{% endblock %}

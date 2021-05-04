@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Technec-Accueil{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('Css/accueil.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+<section class="block1">
+
+    <div class="introCard">
+
+        <section class="mx-auto">
+      
+            <div class="card testimonial-card">
+
+                <div class="card-up aqua-gradient">
+                
+                </div>
+
+                <div class="avatar mx-auto white">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-fluid"
+                    alt="avatar">
+                </div>
+
+                <div class="card-body text-center">
+                    <h4 class="card-title font-weight-bold">Luis De Oliveira</h4>
+                    <hr>
+                    <p><i class="fas fa-quote-left"></i> Fort de mon expérience en formation informatique  et gestion de parc, je met mes compétences à votre service.</p>
+                </div>
+
+                <button type="button" class="btn btn-primary" id="buttonProfil">Mon profil</button>
+
+            </div>
+            
+        </section>
+    
+    </div>
+
+</section>
+
+<section class="content">
+
+    <div class="block2 container col-md-15">
+
+        <h2 id="introBlock2"> Articles par catégories </h2>
+
+        <div class="row">
+
+            <div class="carteArticle shadow-5-strong">
+
+                <img
+                    src="https://mdbootstrap.com/img/new/slides/017.jpg"
+                    class="cardImg"
+                    alt="..."
+                />
+
+                <div class="card-description">
+                    <h5 class="card-title">Catégorie1</h5>
+                    <p class="card-text">
+                    Description catégorie1
+                    </p>
+                    <p class="card-text">Nombre d'articles dans la catégorie</p>
+                </div>
+
+                <div class="shadowCard">
+                </div>
+
+            </div>
+
+
+            <div class="carteArticle shadow-5-strong">
+                <img
+                    src="https://mdbootstrap.com/img/new/slides/017.jpg"
+                    class="cardImg"
+                    alt="..."
+                />
+                <div class="card-description">
+                    <h5 class="card-title">Catégorie2</h5>
+                    <p class="card-text">
+                    Description de la catégorie2
+                    </p>
+                    <p class="card-text">Nombres d'articles dans la catégorie2</p>
+                </div>
+
+                <div class="shadowCard">
+                </div>
+
+            </div>
+
+
+            <div class="carteArticle shadow-5-strong">
+                <img
+                    src="https://mdbootstrap.com/img/new/slides/017.jpg"
+                    class="cardImg"
+                    alt="..."
+                />
+
+                <div class="card-description">
+                    <h5 class="card-title">Catégorie3</h5>
+                    <p class="card-text">
+                    Description de la catégorie3
+                    </p>
+                    <p class="card-text">Nombre d'article dans la catégorie3</p>
+                </div>
+
+                <div class="shadowCard">
+                </div>
+
+            </div>
+
+
+            <div class="carteArticle shadow-5-strong">
+
+                <img
+                    src="https://mdbootstrap.com/img/new/slides/017.jpg"
+                    class="cardImg"
+                    alt="..."
+                />
+                    
+                <div class="card-description">
+                    <h5 class="card-title">Catégorie4</h5>
+                    <p class="card-text">
+                    Description de la Catégorie4
+                    </p>
+                    <p class="card-text">Nombre d'article dans la Catégorie4</p>
+                </div>
+
+                <div class="shadowCard">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="block2Droite shadow-2-strong">
+
+        <div id="articlesRecents">
+            <h3> Article récents </h3>
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}
